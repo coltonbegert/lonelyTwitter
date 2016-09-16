@@ -15,6 +15,6 @@ public class Frustrated extends Mood {
     @Override
     public String format() {
 
-        return "this.mood";
+        return "Apps not compiling";
     }
 }
