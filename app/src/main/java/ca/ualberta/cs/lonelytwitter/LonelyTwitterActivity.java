@@ -50,6 +50,7 @@ public class LonelyTwitterActivity extends Activity {
 				tweetList.add(newTweet);
 				adapter.notifyDataSetChanged();
 				saveInFile();
+				finish();
 			}
 		});
 	}
