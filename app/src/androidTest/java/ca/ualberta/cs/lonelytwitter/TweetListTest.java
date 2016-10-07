@@ -8,14 +8,20 @@ import java.util.ArrayList;
 
 /**
  * Created by colton on 2016-09-29.
+ * @see TweetList
  */
-
 public class TweetListTest extends ActivityInstrumentationTestCase2 {
+    /**
+     * Instantiates a new Tweet list test.
+     */
     public TweetListTest() {
         super(ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity.class);
     }
 
 
+    /**
+     * Test get tweet.
+     */
     public void testGetTweet(){
         TweetList tweets = new TweetList();
         Tweet tweet = new NormalTweet("test");
@@ -24,12 +30,20 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         assertEquals(returnedTweet.getMessage(), tweet.getMessage());
 
     }
+
+    /**
+     * Test has tweet.
+     */
     public void testHasTweet(){
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("test");
         list.add(tweet);
         assertTrue(list.hasTweet(tweet));
     }
+
+    /**
+     * Test add tweet.
+     */
 //    @Test(expected=IllegalArgumentException.class)
     public void testAddTweet(){
         TweetList list = new TweetList();
@@ -45,6 +59,10 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
         assertTrue(list.hasTweet(tweet));
     }
+
+    /**
+     * Test delete.
+     */
     public void testDelete(){
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("test");
@@ -53,6 +71,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         assertFalse(list.hasTweet(tweet));
     }
 
+    /**
+     * Test get count.
+     */
     public void testGetCount() {
         TweetList tweets = new TweetList();
         Tweet tweet = new NormalTweet("test");
@@ -62,6 +83,11 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         tweets.add(tweet2);
         assertEquals(tweets.getCount(), 2);
     }
+
+    /**
+     * Test get tweets.
+     *
+     */
     public void testGetTweets(){
         TweetList tweets = new TweetList();
         Tweet tweet1 = new NormalTweet("test1");

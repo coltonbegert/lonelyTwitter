@@ -8,6 +8,12 @@ import java.util.Date;
 public class Frustrated extends Mood {
 
 
+    /**
+     * Instantiates a new Frustrated.
+     * extends mood with a string of text
+     *
+     * @param date the date
+     */
     public Frustrated(Date date) {
         super(date);
     }

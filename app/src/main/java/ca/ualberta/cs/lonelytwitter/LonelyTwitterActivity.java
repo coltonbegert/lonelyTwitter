@@ -1,3 +1,10 @@
+/*
+Copyright (C) 2016 Team 20, CMPUT 301, University of Alberta - All Rights Reserved.
+You may use, copy or distribute this code under terms and conditions of University of Alberta
+and code of Student Behavior.
+Please contact abs@abc.ca for more details or questions.
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -23,8 +30,36 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * this is the main view
+ * it deals with input, saves/loads them in from FILENAME
+ * <p> you can access this file from android deviee monitor</p>
+ * <pre>pre-formatted</pre>
+ * <code>
+ * pseudo-code that is used in this class is as follows <br>
+ * step 1: <br>
+ * step 2: <br>
+ * </code>
+ * <ol>
+ * <li>item 1</li>
+ * <li> item 2</li>
+ * <ul>item 3</ul>
+ * <ul>item 4</ul>
+ * </ol>
+ *
+ * @author colton
+ * @see NormalTweet
+ * @see java.io.BufferedReader
+ * @since 1.4
+ */
 public class LonelyTwitterActivity extends Activity {
 
+	/**
+	 * this is the name of the file that is saved in your virtual devices
+	 * You can access it through Android Device Monitor by Selecting your App,
+	 * then data -> date ->file.sav
+	 * @author colton
+	 */
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
