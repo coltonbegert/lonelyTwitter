@@ -11,8 +11,10 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +27,9 @@ public class LonelyTwitterActivity extends Activity {
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
     private ArrayAdapter<Tweet> adapter;
-	
+	private Activity activity = this;
+
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +55,19 @@ public class LonelyTwitterActivity extends Activity {
 		clearButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				tweetList.clear());
+				tweetList.clear();
                 adapter.notifyDataSetChanged();
 
+			}
+		});
+
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+				Intent intent = new Intent(activity, EditTweetActivity.class);
+//				String s =  ;
+				intent.putExtra("EditTweetActivityText", tweetList.get(i).getMessage());
+				startActivity(intent);
 			}
 		});
 	}
@@ -67,7 +81,7 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
-	private String[] loadFromFile() {
+	private void loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -101,5 +115,9 @@ public class LonelyTwitterActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public ListView getOldTweetsList() {
+		return oldTweetsList;
 	}
 }
