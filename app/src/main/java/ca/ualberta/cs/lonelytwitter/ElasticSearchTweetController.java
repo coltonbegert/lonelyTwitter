@@ -20,6 +20,8 @@ import io.searchbox.core.SearchResult;
  */
 
 public class ElasticSearchTweetController {
+    // made the database a variable
+    public static final String databaseAddress = "http://cmput301.softwareprocess.es:8080";
     private static JestDroidClient client;
 
     public static class AddTweetsTask extends AsyncTask<NormalTweet, Void, Void> {
@@ -35,7 +37,8 @@ public class ElasticSearchTweetController {
 
 
                     } else {
-                        Log.i("Error", "Failed to insert the tweet into elsatic search");
+//                        fixed spelling error from elsatic to elastic
+                        Log.i("Error", "Failed to insert the tweet into elastic search");
 
                     }
                 }
@@ -66,7 +69,8 @@ public class ElasticSearchTweetController {
                     tweets.addAll(foundTweets);
 
                 } else {
-                    Log.i("Error","The search exectued but didnt work");
+//                    fixed spelling errors
+                    Log.i("Error","The search executed but didn't work");
                 }
             } catch (Exception e){
                 Log.i("Error", "Executing the get tweets method failed");
@@ -77,7 +81,8 @@ public class ElasticSearchTweetController {
 
     public static void verifySettings(){
         if (client == null) {
-            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080");
+//            made the database location a constant variable
+            DroidClientConfig.Builder builder = new DroidClientConfig.Builder(databaseAddress);
             DroidClientConfig config = builder.build();
 
             JestClientFactory factory = new JestClientFactory();
